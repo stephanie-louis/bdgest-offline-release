@@ -1,0 +1,60 @@
+<h2>Crawler album</h2>
+
+<div style="width: 50%;float:left;">
+
+    <div>
+        {% if exists['serie'] %}
+            La série existe déjà dans la collection.
+        {% else %}
+            La nouvelle série est importée dans la collection.
+        {% endif %}
+    </div>
+
+    <h3>{{ serie.titre }}</h3>
+    <p>{{ serie.resume }}</p>
+    <div>
+        <img src="{{ serie.imgPlanche }}"  width="200" />
+    </div>
+    <div>
+        <ul>
+            <li>Identifiant: {{ serie.getIdBdgest }}</li>
+            <li>Genre: {{ serie.genre }}</li>
+            <li>en cours: {{ serie.enCours }}</li>
+        </ul>
+    </div>
+</div>
+<div style="width: 50%;float:left;">
+
+    <div>
+        {% if exists['album'] %}
+            L'album existe déjà dans la collection.
+        {% else %}
+            Le nouvel album est importé dans la collection.
+        {% endif %}
+    </div>
+
+    <h3>{{ album.titre }}</h3>
+    <div>
+        <img src="{{ album.imgCouverture }}" width="200" />
+    </div>
+
+    <div>
+        <ul>
+            <li>Serie: {{ album.serie }}</li>
+            <li>Identifiant: {{ album.getIdBdgest }}</li>
+            <li>Tomes: {{ album.tome }}</li>
+            <li>dépot légal: {{ album.getDepotLegal }}</li>
+            <li>ISBN: {{ album.isbn }}</li>
+            <li>Planches: {{ album.planches }}</li>
+            <li>Editeur: {{ album.editeur }}</li>
+            <li>{{ album.format }}</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <button>Importer dans ma collection</button>
+</div>
+

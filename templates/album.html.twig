@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>{{ album.tome }}. {{ album.titre}}</h1>
+    <div class="row mt-3">
+        <div class="col-sm-6 col-md-4 mb-3 border-0">
+            <img class="img-fluid" src="/images/album/couverture/{{ album.imgCouverture | fileFromURL }}" alt="{{ album.titre }}">
+            <img class="img-fluid" src="/images/album/couverture/{{ album.imgDos | fileFromURL }}" alt="{{ album.titre }}">
+        </div>
+        <div class="col-sm-6 col-md-8 mb-3 border-0">
+            <p><strong>Série:</strong> {{ album.serie }}</p>
+            <p><strong>Scénariste:</strong> {{ album.scenariste|raw }}</p>
+            <p><strong>Dessinateur:</strong> {{ album.dessinateur|raw }}</p>
+            <p><strong>Editeur:</strong> {{ album.editeur|raw }}</p>
+            <p><strong>Tome:</strong> {{ album.tome }}</p>
+            <p><strong>Dépôt légal:</strong> {{ album.depotLegal }}</p>
+            <p><strong>ISBN:</strong> {{ album.isbn }}</p>
+            <p><strong>Planches:</strong> {{ album.planches }}</p>
+            <p><strong>Format:</strong> {{ album.format }}</p>
+            <p><strong>Date d'achat:</strong> {{ album.dateachat|date("d/m/Y") }}</p>
+            <p><strong>Prix:</strong> {{ album.prix }}</p>
+            <p><strong>BDGEST:</strong> <a href="https://www.bedetheque.com/BD-xx-{{ album.idbdgest }}.html" target="_blank">{{ album.idbdgest }}</a></p>
+        </div>
+        <div class="col-sm-12 mb-3 border-0">
+            {% if album.whislist %}
+                <a href="/toggle/collection/{{ album.id }}" class="btn btn-success" title="Déplacer vers la collection" data-toggle="tooltip" data-placement="right">
+                    <i class="fa fa-book" aria-hidden="true"></i> Déplacer vers la collection
+                </a>
+                <a href="/delete/{{ album.id }}" class="btn btn-danger" title="Supprimer de la wishlist" data-toggle="tooltip" data-placement="right">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer de la wishlist
+                </a>
+            {% endif %}
+            {% if not album.whislist %}
+                {% if album.tosell != true %}
+                <a href="/toggle/tosell/{{ album.id }}" class="btn  btn-primary" title="Mettre en vente" data-toggle="tooltip" data-placement="right">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Mettre en vente
+                </a>
+                {% else %}
+                    <a href="/toggle/tosell/{{ album.id }}" class="btn btn-outline-secondary" title="Ne plus vendre" data-toggle="tooltip" data-placement="right">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Ne plus vendre
+                    </a>
+                    <a href="/delete/tosell{{ album.id }}" class="btn btn-danger" title="Vendu -> Supprimer de la collection" data-toggle="tooltip" data-placement="right">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i> Vendu -> Supprimer de la collection
+                    </a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

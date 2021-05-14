@@ -1,0 +1,52 @@
+<div class="sidebar-header">
+    <button type="button" id="sidebarCollapse" class="btn btn-dark">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <ul class="list-unstyled components">
+        <p>BDGEST OFFLINE</p>
+        {#<li class="active">#}
+            {#<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"></a>#}
+            {#<ul class="collapse list-unstyled" id="homeSubmenu">#}
+                {#<li>#}
+                    {#<a href="#">Ma Collection</a>#}
+                {#</li>#}
+                {#<li>#}
+                    {#<a href="#">Home 2</a>#}
+                {#</li>#}
+                {#<li>#}
+                    {#<a href="#">Home 3</a>#}
+                {#</li>#}
+            {#</ul>#}
+        {#</li>#}
+        <li>
+            <a href="{{ path('dashboard') }}"><i class="fa fa-home" aria-hidden="true"></i> Mon Dashboard</a>
+        </li>
+        <li>&nbsp;</li>
+        <li>
+            <a href="{{ path('albums', {collection: 'albums'}) }}"><i class="fa fa-book" aria-hidden="true"></i> Ma Collection</a>
+        </li>
+        <li>
+            <a href="{{ path('albums', {collection: 'whishlist'}) }}"><i class="fa fa-heart" aria-hidden="true"></i> Ma whishlist</a>
+        </li>
+        <li>&nbsp;</li>
+        <li>
+            <a href="{{ path('series') }}"><i class="fa fa-book" aria-hidden="true"></i> Séries</a>
+        </li>
+        <li>&nbsp;</li>
+        <li>
+            <a href="{{ path('to-sell') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> A vendre</a>
+        </li>
+        <li>
+            <a href="{{ path('crawler_memo') }}"><i class="fa fa-link" aria-hidden="true"></i> URLs crawler</a>
+        </li>
+        <li>&nbsp;</li>
+        <li>
+            <a href="/logout"><i class="fa fa-user" aria-hidden="true"></i> Déconnexion</a>
+        </li>
+{#        <li>#}
+{#            <a href="#">Contact</a>#}
+{#        </li>#}
+    </ul>
+
+</div>

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+<h1>Mon Dashboard</h1>
+
+     <h3>Mes derniers achats</h3>
+<div class="container">
+    <div class="row">
+    {% for album in albums %}
+        <div class="card col-2 mb-3">
+            <a href="#/album/{{ album.id }}" class="show-modal" data-id="{{ album.id }}">
+            <img class="card-img-top" src="/images/album/couverture/{{ album.imgCouverture | fileFromURL }}" alt="{{ album.titre }}"
+                 data-toggle="tooltip" data-placement="bottom" data-html="true"
+                 title="<p>{{ album.serie }}<br>{% if album.tome != '' %}{{ album.tome }}.{% endif %} {{ album.titre|replace({'"': ''})|raw }}</p>"
+            />
+            </a>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+     {% include('includes/modal_album.html.twig') %}
+
+{% endblock %}

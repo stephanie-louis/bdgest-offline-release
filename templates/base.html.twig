@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {% include('includes/css.html.twig') %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <!-- Sidebar -->
+            <nav id="sidebar" class="pt-3 pl-3">
+                {% block sidebar %}
+                    {% include('sidebar.html.twig') %}
+                {% endblock %}
+            </nav>
+
+            <!-- Page Content -->
+            <div id="content" class="w-100 pt-3 pl-3">
+                {% block body %}
+                {% endblock %}
+            </div>
+
+        </div>
+
+
+
+        {% block javascripts %}
+            {% include('includes/javascript.html.twig') %}
+        {% endblock %}
+    </body>
+</html>

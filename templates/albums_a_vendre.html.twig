@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+<h1>{{ titre }} ({{ total }} Albums)</h1>
+
+<div class="container">
+    <div class="row mt-3">
+    {% for album in albums %}
+        <div class="card col-sm-6 col-md-3 col-lg-2 mb-3 border-0">
+            <a href="#/album/{{ album.id }}" class="show-modal" data-id="{{ album.id }}">
+                <img class="card-img-top" src="/images/album/couverture/{{ album.imgCouverture | fileFromURL }}" alt="{{ album.titre }}"
+                     data-toggle="tooltip" data-placement="bottom" data-html="true"
+                     title="<p>{{ album.serie }}<br>{% if album.tome != '' %}{{ album.tome }}.{% endif %} {{ album.titre|replace({'"': ''})|raw }}</p>"
+                />
+            </a>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+     {% include('includes/modal_album.html.twig') %}
+
+{% endblock %}

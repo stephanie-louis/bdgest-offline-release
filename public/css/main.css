@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    -webkit-transition: margin-left 500ms;
+    -moz-transition: margin-left 500ms;
+    -ms-transition: margin-left 500ms;
+    -o-transition: margin-left 500ms;
+    transition: margin-left 500ms;
+
+    background-color: silver;
+}
+#sidebar.active {
+    margin-left: -185px;
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+.sidebar-header{
+    position: fixed;
+}
+#sidebarCollapse {
+    position: absolute;
+    left: 185px;
+}
+.modal-dialog p {
+    margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 700px;
+    }
+}
